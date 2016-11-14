@@ -1,0 +1,9 @@
+---
+- name: test raw module
+  hosts: t-ws2012r2-db.sk.local
+  tasks:
+    - name: run ipconfig
+      raw: ipconfig
+      register: ipconfig
+    - debug: var=ipconfig
+    - win_copy: src=/tmp/test.txt dest=c:\TEMP\wintest.xtx
